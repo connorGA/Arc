@@ -8,20 +8,21 @@ import sys
 
 ## Used throughout script
 na_vals = ["NA", "Missing"] ###############
-benefitCode = {             ###############
-    "ADDL1": None,
-    "ADDL2": None,
-    "ADDL3": None,
-    "ADDL4": None,
-    "ADDLE": None,
-    "LIFLC": None,
-    "LIFLE": None,
-    "LIFLS": None,
-    "LIFL1": None,
-    "LIFL2": None,
-    "LIFL3": None,
-    "LIFL4": None,
-    "LTDL": None,
+benefitCode = {            # "BenefitCode" : "Coverage(Lookup)Code"
+    "ADDL1": "AD+D",
+    "ADDL2": "AD+D",
+    "ADDL3": "AD+D",
+    "ADDL4": "AD+D",
+    "ADDLE": "V AD+D",
+    "LIFLC": "VC LIFE",
+    "LIFLE": "V LIFE",
+    "LIFLS": "VS LIFE",
+    "LIFL1": "LIFE",
+    "LIFL2": "LIFE",
+    "LIFL3": "LIFE",
+    "LIFL4": "LIFE",
+    "LTDL": "LTD",
+    "ADDLS": "VS AD+D"
 }
 # glEEcode = "2404"      // not sure where to find these, are they relevant for lincoln???
 # glERCobra = "1405"
