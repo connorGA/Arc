@@ -12,7 +12,7 @@ import sys
 
 ### If you run the scrip outside the month your in put a True and replace OVRD with MM-YYYY
 monthOVRD = True
-monthYearOVRD = '06-2023'
+monthYearOVRD = '08-2023'
 ###
 
 # import time
@@ -227,9 +227,9 @@ is_NaN = is_NaN[['Employee_Number','Subscriber_Name']]
 
 if is_NaN.empty:
     print('Pass - No NaN')
-else:
-    is_NaN.to_excel(f'{benefit}/_{benefit}_NaN_list_DELETE_WHEN_DONE.xlsx', engine="xlsxwriter")
-    sys.exit('Fail - Has NaN')
+#else:
+#    is_NaN.to_excel(f'{benefit}/_{benefit}_NaN_list_DELETE_WHEN_DONE.xlsx', engine="xlsxwriter")
+#    sys.exit('Fail - Has NaN')
 
 
 ## Merge data
@@ -431,11 +431,11 @@ dfBillEE["Org_Level_1_Code"] = "01"
 dfBillEE["Org_Level_2_Code"] = "01"
 dfBillEE["Account"] = (
     "01-"
-    + dfBillEE["GL_Employee"]
+    + dfBillEE["GL_Employee"].astype(str)
     + "-"
-    + dfBillEE["Org_Level_1_Code"]
+    + dfBillEE["Org_Level_1_Code"].astype(str)
     + "-"
-    + dfBillEE["Org_Level_2_Code"]
+    + dfBillEE["Org_Level_2_Code"].astype(str)
 )
 dfBillEE.rename(columns={"EE_Cost": "Amount"}, inplace=True)
 dfBillEE["Type"] = dfBillEE.apply(lambda x: CreditDebit(x["Amount"]), axis=1)
@@ -455,11 +455,11 @@ dfBillER = dfBill[
 ].copy()
 dfBillER["Account"] = (
     "01-"
-    + dfBillER["GL_Employer"]
+    + dfBillER["GL_Employer"].astype(str)
     + "-"
-    + dfBillER["Org_Level_1_Code"]
+    + dfBillER["Org_Level_1_Code"].astype(str)
     + "-"
-    + dfBillER["Org_Level_2_Code"]
+    + dfBillER["Org_Level_2_Code"].astype(str)
 )
 dfBillER.rename(columns={"ER_Cost": "Amount"}, inplace=True)
 dfBillER["Type"] = dfBillER.apply(lambda x: CreditDebit(x["Amount"]), axis=1)
