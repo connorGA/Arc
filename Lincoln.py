@@ -30,3 +30,13 @@ glCompany = "2003"       ##############
 benefit = 'Lincoln'      ##############
 monthOVRD = False
 monthYearOVRD = '07-2023'
+
+## Used to get current Month+Year
+if monthOVRD == False:
+    dtToday = dt.datetime.today()
+    strToday = str(dtToday.month) + "/" + str(dtToday.day) + "/" + str(dtToday.year)
+    strMonthYear = str(dtToday.month).rjust(2, "0") + "-" + str(dtToday.year)
+else:
+    dtToday = dt.datetime.today()
+    strToday = str(dtToday.month) + "/" + str(dtToday.day) + "/" + str(dtToday.year)    
+    strMonthYear = monthYearOVRD
