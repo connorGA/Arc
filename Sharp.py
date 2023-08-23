@@ -15,7 +15,7 @@ glERCobra = "1405"
 glERcode = "7101"
 glCompany = "2003"
 benefit = 'Sharp'
-monthOVRD = True
+monthOVRD = False
 monthYearOVRD = '07-2023'
 
 ## Used to get current Month+Year
@@ -250,13 +250,14 @@ def Audit(cobra, activity, bill, payroll, empStatus, termDate):
     elif empStatus == "Terminated":
         return f"Termed in {termStr}"
     else:
-        if bill == payroll:
+        temp = round(abs(bill - payroll),2)
+        if bill == payroll or temp == 0.01:
             return "Good"
         elif bill > payroll:
             x = bill - payroll
             x = round(x, 2)
             return f"Issue - Billed ${x} MORE than Payroll"
-        elif bill > payroll:
+        elif bill < payroll:
             x = bill - payroll
             x = round(x, 2)
             return f"Issue - Bill ${x} LESS than Payroll"
